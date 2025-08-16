@@ -60,15 +60,6 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS) // Left-hand HRMs.
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 
-// Simplified hold-preferred HRM for specialized keys
-#define MAKE_HRM_HOLD_PREFERRED(NAME, HOLD, TAP)                               \
-  ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
-               tapping-term-ms = <150>; require-prior-idle-ms = <150>;         \
-               hold-trigger-on-release;)
-
-MAKE_HRM_HOLD_PREFERRED(hrm_hp, &kp, &kp)
-MAKE_HRM_HOLD_PREFERRED(hrm_hp_colsl, &kp, &kp)
-MAKE_HRM_HOLD_PREFERRED(hrm_hp_eqmark, &kp, &kp)
 
 // Hack: Make HRM combos tap-only (cf, ZMK issue #544).
 #define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)     \
@@ -215,9 +206,9 @@ ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp B         &kp Y         &kp O         &kp U         &kp Z       ,   &kp Q         &kp L         &kp D         &kp W         &kp V       ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp C         &kp I         &kp E         &kp A         &hrm_hp LGUI COMMA, &hrm_hp LGUI DOT &kp H   &kp T         &kp S         &kp N       ,
+    &kp C         &kp I         &kp E         &kp A         &kp COMMA   ,   &kp DOT       &kp H         &kp T         &kp S         &kp N       ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp G         &kp X         &kp J         &kp K         &hrm_hp_colsl LALT COLON, &hrm_hp_eqmark LALT EXCL &kp R &kp M &kp F &kp P       ,
+    &kp G         &kp X         &kp J         &kp K         &kp COLON   ,   &kp EXCL      &kp R         &kp M         &kp F         &kp P       ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               &lt_spc NAV 0 &lt FN RET  ,   SMART_NUM     MAGIC_SHIFT
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
